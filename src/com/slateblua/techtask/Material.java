@@ -1,81 +1,87 @@
 package com.slateblua.techtask;
 
-@SuppressWarnings("all")
-public enum MaterialEnum implements Storable {
+/**
+ * The <code>Material</code> enum to represent materials that can be stored
+ */
 
-    GOLD("Gold", "Icon", "Material used in...") {
+@SuppressWarnings("unused")
+public enum Material implements Storable {
+
+    COPPER("Copper", "Icon", "Material used in...") {
         @Override
         public int getMaxCapacity() {
-            return 20;
+            return COPPER_MAX_CAPACITY;
         }
     },
     BOLT("Bolt", "Icon", "Material used in...") {
         @Override
         public int getMaxCapacity() {
-            return 20;
+            return BOLT_MAX_CAPACITY;
         }
     },
     IRON("Iron", "Icon", "Material used in...") {
         @Override
         public int getMaxCapacity() {
-            return 20;
-        }
-    },
-    COOPER("Iron", "Icon", "Material used in...") {
-        @Override
-        public int getMaxCapacity() {
-            return 0;
+            return IRON_MAX_CAPACITY;
         }
     };
+
+    private static final int COPPER_MAX_CAPACITY = 20;
+    private static final int IRON_MAX_CAPACITY = 20;
+    private static final int BOLT_MAX_CAPACITY = 20;
+
     /**
-     *
+     * Name of the material
      */
     private final String name;
 
     /**
-     *
+     * Icon of the material
      */
     private final String icon;
 
     /**
-     *
+     * Description of the material
      */
     private final String description;
 
     /**
-     * @param name
-     * @param icon
-     * @param description
+     * @param name Name of the material
+     * @param icon Icon of the material
+     * @param description Description of the material
      */
-    MaterialEnum(String name, String icon, String description) {
+    Material(String name, String icon, String description) {
         this.name = name;
         this.icon = icon;
         this.description = description;
     }
 
     /**
-     * @return
+     * @return Name of the material
      */
     public String getName() {
-        return name;
+        return this.name;
     }
 
     /**
-     * @return
+     * @return Icon of the material
      */
     public String getIcon() {
-        return icon;
+        return this.icon;
     }
 
     /**
-     * @return
+     * @return Description of the material
      */
     public String getDescription() {
-        return description;
+        return this.description;
     }
 
+    /**
+     * @return <code>String</code> representation of a material
+     */
     @Override
     public String toString() {
-        return name + " " + description;
+        return this.name + " " + this.description;
     }
 }
